@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0E0E10" />
+  <title>Lid Life — Event Finder</title>
+  <meta name="description" content="Find UK motorcycle events near you. Bike meets, track days, ride outs, shows, race meets and rider training. Free tool by Lid Life." />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Lid Life Events" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="lib/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css?v=4" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════ HEADER -->
+  <header class="site-header">
+    <div class="hdr-inner">
+
+      <a class="hdr-brand" href="/" aria-label="Lid Life Event Finder home">
+        <img src="assets/logo.png" alt="" width="36" height="36" class="hdr-logo" />
+        <div class="brand-text">
+          <span class="brand-name">Lid Life</span>
+          <span class="brand-sub">Event Finder</span>
+        </div>
+      </a>
+
+      <!-- EVENT TYPE dropdown trigger (replaces category pill bar) -->
+      <div class="hdr-actions">
+        <button id="btn-type-filter" class="hdr-type-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span id="type-btn-label">EVENT TYPE</span>
+          <svg class="filter-arrow" viewBox="0 0 10 6" fill="currentColor" aria-hidden="true"><path d="M0 0l5 6 5-6z"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════ SUB-FILTERS -->
+  <div class="sub-filters" id="sub-filters">
+    <div class="sub-filters-inner">
+
+      <!-- Text search row -->
+      <div class="search-events-bar" role="search">
+        <svg class="loc-search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input id="search-input" class="loc-search-inp" type="search"
+               placeholder="Search events…"
+               autocomplete="off" autocorrect="off"
+               aria-label="Search events by name or description" />
+        <button id="btn-clear-search" class="loc-locate-btn" type="button" aria-label="Clear search" style="display:none">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="loc-group">
+        <!-- Location row -->
+        <div class="loc-row">
+          <div class="loc-search-bar" role="search">
+            <svg class="loc-search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input id="loc-input" class="loc-search-inp" type="text"
+                   placeholder="Search location…"
+                   autocomplete="off" autocorrect="off" autocapitalize="words"
+                   enterkeyhint="search" aria-label="Search by location" />
+            <button id="btn-locate" class="loc-locate-btn" type="button" aria-label="Use my current location">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+              </svg>
+            </button>
+          </div>
+          <div id="radius-row" class="radius-row">
+            <label for="radius" class="sr-only">Search radius</label>
+            <input id="radius" type="range" min="5" max="100" step="5" value="25" />
+            <span id="radius-val" class="radius-val">25 mi</span>
+            <!-- DATEs dropdown trigger (replaces date chips) -->
+            <button id="btn-dates-filter" class="dates-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span id="dates-btn-label">DATES</span>
+              <svg class="filter-arrow" viewBox="0 0 10 6" fill="currentColor" aria-hidden="true"><path d="M0 0l5 6 5-6z"/></svg>
+            </button>
+            <!-- Add Event button -->
+            <button id="btn-add-event" class="add-event-btn" type="button" aria-label="Add your own event">+ Add Event</button>
+          </div>
+        </div>
+        <p id="loc-msg" class="loc-msg" aria-live="polite"></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ MAIN -->
+  <main id="main-content" class="main-content">
+
+    <!-- Results header (list mode only) -->
+    <div id="results-bar" class="results-bar">
+      <div class="results-bar-inner">
+        <div class="results-title-group">
+          <p class="results-eyebrow">Showing <strong id="count-num">—</strong> events</p>
+          <h1 class="results-heading">What's on</h1>
+        </div>
+        <div class="results-actions">
+          <button id="btn-submit" class="results-add-link" type="button">add your own event +</button>
+          <div class="view-controls">
+            <button id="btn-view-toggle" class="view-btn" type="button" aria-pressed="false">Map View</button>
+            <label for="sort-select" class="sr-only">Sort events</label>
+            <select id="sort-select" class="sort-sel">
+              <option value="date-asc">Date ↑ soonest</option>
+              <option value="date-desc">Date ↓ latest</option>
+              <option value="title">Title A–Z</option>
+              <option value="distance">Nearest first</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map sidebar (map mode only) -->
+    <div id="map-sidebar" class="map-sidebar" style="display:none"
+         role="complementary" aria-label="Events list">
+      <div class="map-sidebar-hdr">
+        <p class="map-sidebar-eyebrow">Map view · <span id="map-count">—</span> events</p>
+        <h2 class="map-sidebar-heading">What's on</h2>
+        <button id="btn-back-list" class="btn-back-list" type="button">← Back to list</button>
+      </div>
+      <div id="map-sidebar-list" class="map-sidebar-list"></div>
+    </div>
+
+    <!-- Event grid (list mode) -->
+    <div id="event-grid" class="event-list" aria-live="polite" aria-label="Events"></div>
+
+    <!-- Map canvas (map mode) -->
+    <div id="map-container" class="map-pane" style="display:none"
+         role="region" aria-label="Events map"></div>
+
+    <!-- Pagination -->
+    <nav id="pagination" class="pagination" aria-label="Page navigation"></nav>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════ FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      Lid Life · Two Wheels, One Club ·
+      <a href="mailto:hello@lidlife.uk">hello@lidlife.uk</a>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════ OVERLAY -->
+  <div id="overlay" class="overlay" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════ EVENT TYPE DROPDOWN -->
+  <!-- position:fixed, shown/hidden by JS, direct child of body -->
+  <div id="type-dropdown" class="filter-dropdown" aria-hidden="true" role="listbox" aria-label="Filter by event type">
+    <div class="filter-dd-inner">
+      <div class="filter-dd-header">
+        <span class="filter-dd-title">Event Type</span>
+        <button class="filter-dd-close" id="btn-close-type" aria-label="Close">✕</button>
+      </div>
+      <div id="type-dd-list" class="type-dd-list">
+        <!-- rendered by renderTypeDropdown() -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ DATES DROPDOWN -->
+  <!-- position:fixed, full-width, shown/hidden by JS -->
+  <div id="dates-dropdown" class="filter-dropdown dates-dropdown" aria-hidden="true" role="listbox" aria-label="Filter by date">
+    <div class="filter-dd-inner">
+      <div class="filter-dd-header">
+        <span class="filter-dd-title">Date</span>
+        <button class="filter-dd-close" id="btn-close-dates" aria-label="Close">✕</button>
+      </div>
+      <div class="dates-dd-chips">
+        <button class="dd-chip active" data-date="upcoming">All upcoming</button>
+        <button class="dd-chip" data-date="today">Today</button>
+        <button class="dd-chip" data-date="tomorrow">Tomorrow</button>
+        <button class="dd-chip" data-date="week">This week</button>
+        <button class="dd-chip" data-date="weekend">This weekend</button>
+        <button class="dd-chip" data-date="next-weekend">Next weekend</button>
+        <button class="dd-chip" data-date="next-week">Next week</button>
+        <button class="dd-chip" data-date="month">This month</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ SUBMIT MODAL -->
+  <div id="submit-modal" class="modal" aria-hidden="true"
+       role="dialog" aria-modal="true" aria-labelledby="submit-title">
+    <div class="modal-box">
+
+      <div class="modal-head">
+        <div class="modal-head-text">
+          <p class="modal-eyebrow">Submit an event</p>
+          <h2 id="submit-title" class="modal-title">Got something on?</h2>
+          <p class="modal-sub">Tell us about it. We'll review and add it to the finder.</p>
+        </div>
+        <button class="modal-close-btn" data-close aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" aria-hidden="true">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div id="submit-form-wrap" class="modal-body">
+        <form id="submit-form" novalidate autocomplete="off">
+
+          <div class="field-row-2">
+            <div class="field">
+              <label class="field-lbl" for="f-date">Date <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-date" class="field-inp" type="date" required />
+            </div>
+            <div class="field">
+              <label class="field-lbl" for="f-type">Type <span class="req" aria-hidden="true">*</span></label>
+              <select id="f-type" class="field-inp" required>
+                <option value="">Select…</option>
+                <option>Bike Meets</option>
+                <option>Track Days</option>
+                <option>Ride Outs</option>
+                <option>Shows &amp; Events</option>
+                <option>Race Meets</option>
+                <option>Rider Training</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field repeat-field">
+            <label class="field-lbl">Repeat</label>
+            <div class="repeat-radios">
+              <label class="repeat-opt">
+                <input type="radio" name="f-repeat" value="" checked />
+                <span>One-off</span>
+              </label>
+              <label class="repeat-opt">
+                <input type="radio" name="f-repeat" value="weekly" />
+                <span>Weekly</span>
+              </label>
+              <label class="repeat-opt">
+                <input type="radio" name="f-repeat" value="monthly" />
+                <span>Monthly</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-lbl" for="f-title">Event name <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-title" class="field-inp" type="text" required maxlength="160"
+                   placeholder="e.g. Cadwell Park Track Day" />
+          </div>
+
+          <div class="field">
+            <label class="field-lbl" for="f-loc">Location <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-loc" class="field-inp" type="text" required
+                   placeholder="Venue, town or postcode" maxlength="200" />
+          </div>
+
+          <div class="field">
+            <label class="field-lbl" for="f-desc">Description</label>
+            <textarea id="f-desc" class="field-inp field-textarea"
+                      maxlength="800" rows="3"
+                      placeholder="What's happening? Who's it for?"></textarea>
+          </div>
+
+          <div class="field-row-2">
+            <div class="field">
+              <label class="field-lbl" for="f-link">Event link</label>
+              <input id="f-link" class="field-inp" type="url" placeholder="https://" />
+            </div>
+            <div class="field">
+              <label class="field-lbl" for="f-map">Maps link</label>
+              <input id="f-map" class="field-inp" type="url" placeholder="https://" />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-submit-primary">Submit for review</button>
+            <button type="button" class="btn-submit-cancel" data-close>Cancel</button>
+          </div>
+
+          <p class="form-note">
+            Events you add are saved on <strong>this device only</strong>.
+            We review all submissions before adding them to the main list.
+          </p>
+
+        </form>
+      </div>
+
+      <div id="submit-success" class="modal-success hidden">
+        <div class="success-check">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+        </div>
+        <h3 class="success-title" id="success-title">Event added!</h3>
+        <p class="success-sub" id="success-sub">It's now showing in the list on this device.</p>
+        <div class="form-actions" style="justify-content:center;margin-top:24px">
+          <button id="btn-add-another" class="btn-submit-primary">Add another</button>
+          <button class="btn-submit-cancel" data-close>Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ TOAST -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ═════════════════════════════════════ FLOATING MAP BACK BUTTON -->
+  <button id="mob-back-to-list" class="mob-back-to-list" type="button" style="display:none" aria-label="Close map, return to list">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+      <path d="M18 6L6 18M6 6l12 12"/>
+    </svg>
+  </button>
+
+  <script src="lib/leaflet.js"></script>
+  <script src="js/app.js?v=4"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/sw.js");
+      });
+    }
+  </script>
+
+</body>
+</html>
