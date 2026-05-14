@@ -624,8 +624,8 @@
           locHtml +
           descHtml +
         '</div>' +
-        (actions ? '<div class="row-actions">' + actions + '</div>' : '') +
         saveBtn +
+        (actions ? '<div class="row-actions">' + actions + '</div>' : '') +
       '</article>'
     );
   }
