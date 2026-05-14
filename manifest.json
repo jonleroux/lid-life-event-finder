@@ -4,8 +4,8 @@
   "description": "Find UK motorcycle events near you",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F4F1EA",
-  "theme_color": "#0E0E10",
+  "background_color": "#D6202A",
+  "theme_color": "#D6202A",
   "orientation": "portrait-primary",
   "icons": [
     { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },

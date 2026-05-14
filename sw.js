@@ -3,7 +3,7 @@
    Cache-first for app shell · Network-first for event data
    ========================================================= */
 
-var CACHE = "lidlife-v2-4";
+var CACHE = "lidlife-v2-5";
 
 var SHELL = [
   "/",
@@ -16,6 +16,7 @@ var SHELL = [
   "/lib/marker-icon-2x.png",
   "/lib/marker-shadow.png",
   "/assets/logo.png",
+  "/assets/icons/icon-apple.png",
   "/assets/icons/icon-192.png",
   "/assets/icons/icon-512.png",
   "/manifest.json"
