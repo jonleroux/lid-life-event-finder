@@ -563,7 +563,6 @@ button, select, input, textarea {
   gap:           20px;
   padding:       22px 0;
   border-bottom: 1px solid var(--ll-border);
-  position:      relative; /* needed for absolute save button */
 }
 .event-row:first-child { border-top: none; }
 
@@ -668,22 +667,21 @@ button, select, input, textarea {
   overflow:              hidden;
 }
 
-/* Save button — top-right corner of each card */
+/* Save button — flex item at the end of the card row */
 .btn-save {
-  position:   absolute;
-  top:        12px;
-  right:      12px;
-  background: none;
-  border:     none;
-  padding:    4px;
-  cursor:     pointer;
-  color:      var(--ll-bone-3);
+  background:  none;
+  border:      none;
+  padding:     4px;
+  cursor:      pointer;
+  color:       var(--ll-red);   /* red outline when unsaved */
   line-height: 0;
-  transition: color 0.15s;
+  flex-shrink: 0;
+  align-self:  flex-start;
+  transition:  opacity 0.15s;
 }
 .btn-save svg { width: 20px; height: 20px; display: block; }
-.btn-save:hover { color: var(--ll-red); }
-.btn-save.saved { color: var(--ll-red); }
+.btn-save:hover { opacity: 0.6; }
+.btn-save.saved { color: var(--ll-red); } /* fill handled by SVG fill attr in JS */
 
 /* Row actions */
 .row-actions {
