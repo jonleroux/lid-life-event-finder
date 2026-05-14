@@ -11,6 +11,7 @@
   var PAGE_SIZE   = 24;
   var LS_USER     = "ll_user_events";
   var LS_GEOCACHE = "ll_geocache";
+  var LS_SAVED    = "ll_saved_keys";
 
   var TYPES = [
     { name: "Bike Meets"    },
@@ -50,6 +51,8 @@
     page:       1,
     view:       "list",
     search:     "",
+    savedOnly:  false,
+    savedKeys:  new Set(lsGet(LS_SAVED, [])),
     userEvents: lsGet(LS_USER, [])
   };
 
@@ -276,10 +279,23 @@
       if (state.loc) { state.page = 1; render(); }
     });
 
-    // Event list delegated — only reset button needed (no save/share in v2)
+    // Event list delegated
     byId("event-grid").addEventListener("click", function (e) {
       if (e.target.closest("#btn-reset")) { resetFilters(); return; }
+      var saveEl = e.target.closest("[data-save]");
+      if (saveEl) { toggleSave(saveEl.dataset.save); return; }
     });
+
+    // Saved events toggle button
+    var savedBtn = byId("btn-saved");
+    if (savedBtn) {
+      savedBtn.addEventListener("click", function () {
+        state.savedOnly = !state.savedOnly;
+        state.page = 1;
+        updateSavedBtn();
+        render();
+      });
+    }
 
     // Pagination
     byId("pagination").addEventListener("click", function (e) {
@@ -384,6 +400,7 @@
         applyCachedCoords();
         render();
         renderTypeDropdown();
+        updateSavedBtn();
       })
       .catch(function (err) {
         byId("event-grid").innerHTML =
@@ -408,6 +425,7 @@
       if (from && ev._date < from) continue;
       if (to   && ev._date > to)   continue;
       if (hasTypes && !state.types.has(ev.ty)) continue;
+      if (state.savedOnly && !state.savedKeys.has(evKey(ev))) continue;
       if (searchQ) {
         var inTitle = ev.t    && ev.t.toLowerCase().indexOf(searchQ)    !== -1;
         var inDesc  = ev.desc && ev.desc.toLowerCase().indexOf(searchQ) !== -1;
@@ -588,8 +606,17 @@
                  '" target="_blank" rel="noopener noreferrer">' + icoPin() + 'Map ↗</a>';
     }
 
+    var key   = evKey(ev);
+    var saved = state.savedKeys.has(key);
+    var saveBtn =
+      '<button class="btn-save' + (saved ? ' saved' : '') + '" ' +
+      'data-save="' + esc(key) + '" ' +
+      'aria-label="' + (saved ? 'Unsave' : 'Save') + ' event" type="button">' +
+      icoBookmark(saved) +
+      '</button>';
+
     return (
-      '<article class="event-row" data-key="' + esc(evKey(ev)) + '">' +
+      '<article class="event-row" data-key="' + esc(key) + '">' +
         dateBlock +
         '<div class="row-body">' +
           badge +
@@ -598,6 +625,7 @@
           descHtml +
         '</div>' +
         (actions ? '<div class="row-actions">' + actions + '</div>' : '') +
+        saveBtn +
       '</article>'
     );
   }
@@ -1092,10 +1120,12 @@
 
   // ── Reset filters ─────────────────────────────────────────────────────────
   function resetFilters() {
-    state.types    = new Set();
-    state.dateMode = "upcoming";
-    state.search   = "";
-    state.page     = 1;
+    state.types     = new Set();
+    state.dateMode  = "upcoming";
+    state.search    = "";
+    state.savedOnly = false;
+    state.page      = 1;
+    updateSavedBtn();
     var searchInp   = byId("search-input");
     var searchClear = byId("btn-clear-search");
     if (searchInp)   searchInp.value = "";
@@ -1121,9 +1151,42 @@
     showToast._t = setTimeout(function () { t.classList.remove("show"); }, 2500);
   }
 
+  // ── Save / bookmark ───────────────────────────────────────────────────────
+  function toggleSave(key) {
+    if (state.savedKeys.has(key)) {
+      state.savedKeys.delete(key);
+    } else {
+      state.savedKeys.add(key);
+    }
+    lsSave(LS_SAVED, Array.from(state.savedKeys));
+
+    // Update the button in-place without a full re-render
+    var btn = document.querySelector('[data-save="' + key + '"]');
+    if (btn) {
+      var saved = state.savedKeys.has(key);
+      btn.classList.toggle("saved", saved);
+      btn.setAttribute("aria-label", saved ? "Unsave event" : "Save event");
+      btn.innerHTML = icoBookmark(saved);
+    }
+    updateSavedBtn();
+  }
+
+  function updateSavedBtn() {
+    var btn   = byId("btn-saved");
+    var count = byId("saved-count");
+    if (!btn) return;
+    var n = state.savedKeys.size;
+    if (count) count.textContent = n > 0 ? " (" + n + ")" : "";
+    btn.classList.toggle("active", state.savedOnly);
+  }
+
   // ── SVG icons ─────────────────────────────────────────────────────────────
   function icoPin() {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 13-9 13S3 16 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+  }
+
+  function icoBookmark(filled) {
+    return '<svg viewBox="0 0 24 24" fill="' + (filled ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>';
   }
 
   // ── Boot ──────────────────────────────────────────────────────────────────

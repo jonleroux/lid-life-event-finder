@@ -110,7 +110,13 @@
           <h1 class="results-heading">What's on</h1>
         </div>
         <div class="results-actions">
-          <button id="btn-submit" class="results-add-link" type="button">add your own event +</button>
+          <div class="results-links">
+            <button id="btn-saved" class="results-saved-btn" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+              Saved<span id="saved-count"></span>
+            </button>
+            <button id="btn-submit" class="results-add-link" type="button">add your own event +</button>
+          </div>
           <div class="view-controls">
             <button id="btn-view-toggle" class="view-btn" type="button" aria-pressed="false">Map View</button>
             <label for="sort-select" class="sr-only">Sort events</label>

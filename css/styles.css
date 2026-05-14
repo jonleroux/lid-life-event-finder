@@ -473,6 +473,34 @@ button, select, input, textarea {
 }
 .results-add-link:hover { opacity: 0.75; }
 
+.results-links {
+  display:     flex;
+  align-items: center;
+  gap:         14px;
+}
+
+.results-saved-btn {
+  display:        flex;
+  align-items:    center;
+  gap:            5px;
+  font-family:    var(--f-mono);
+  font-size:      10px;
+  letter-spacing: 1px;
+  color:          var(--ll-steel);
+  background:     none;
+  border:         none;
+  padding:        0;
+  cursor:         pointer;
+  white-space:    nowrap;
+  transition:     color 0.12s;
+}
+.results-saved-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+.results-saved-btn:hover { color: var(--ll-ink); }
+.results-saved-btn.active {
+  color: var(--ll-red);
+}
+.results-saved-btn.active svg { fill: var(--ll-red); }
+
 .view-controls {
   display:     flex;
   align-items: center;
@@ -535,6 +563,7 @@ button, select, input, textarea {
   gap:           20px;
   padding:       22px 0;
   border-bottom: 1px solid var(--ll-border);
+  position:      relative; /* needed for absolute save button */
 }
 .event-row:first-child { border-top: none; }
 
@@ -638,6 +667,23 @@ button, select, input, textarea {
   -webkit-box-orient:    vertical;
   overflow:              hidden;
 }
+
+/* Save button — top-right corner of each card */
+.btn-save {
+  position:   absolute;
+  top:        12px;
+  right:      12px;
+  background: none;
+  border:     none;
+  padding:    4px;
+  cursor:     pointer;
+  color:      var(--ll-bone-3);
+  line-height: 0;
+  transition: color 0.15s;
+}
+.btn-save svg { width: 20px; height: 20px; display: block; }
+.btn-save:hover { color: var(--ll-red); }
+.btn-save.saved { color: var(--ll-red); }
 
 /* Row actions */
 .row-actions {
