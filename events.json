@@ -234,6 +234,22 @@
     "link": "https://oliversmount.ticketco.events/uk/en/e/26_gc?_gl=1*256x6m*_ga*MzU0NDEyNjQuMTc3NjI1ODI2NA..*_ga_KGYFZ75YB1*czE3NzcwMjQ2MzgkbzIkZzEkdDE3NzcwMjUxODIkajYwJGwwJGgw"
   },
   {
+    "d": "05-Sep-26",
+    "t": "French Round",
+    "ty": "Race Meets",
+    "loc": "Circuit de Nevers Magny-Cours, Magny-Cours, France",
+    "ref": "LL-1033",
+    "desc": "WorldSBK Round 9 featuring Race 1, Superpole Race, and Race 2."
+  },
+  {
+    "d": "05-Sep-26",
+    "t": "Fowlers Centenary Open Day",
+    "ty": "Bike Meets",
+    "loc": "Fowlers Bristol, Bristol, UK",
+    "ref": "LL-1087",
+    "desc": "Free open day marking Fowlers' 100th anniversary with chance to win a new Suzuki GSX-8S."
+  },
+  {
     "d": "06-Sep-26",
     "t": "World Superbike Championship - Round 9, France",
     "ty": "Race Meets",
@@ -357,6 +373,14 @@
     "ref": "LL-0985",
     "desc": "This is the big one. Eight decades of motorcycle racing at Oliver’s Mount culminate in a three-day celebration of this legendary venue’s incredible legacy.",
     "link": "https://oliversmount.ticketco.events/uk/en/e/26_gc?_gl=1*256x6m*_ga*MzU0NDEyNjQuMTc3NjI1ODI2NA..*_ga_KGYFZ75YB1*czE3NzcwMjQ2MzgkbzIkZzEkdDE3NzcwMjUxODIkajYwJGwwJGgw"
+  },
+  {
+    "d": "06-Sep-26",
+    "t": "MXGP — MXGP of Turkey",
+    "ty": "Race Meets",
+    "loc": "Afyonkarahisar",
+    "ref": "LL-1064",
+    "link": "https://www.mxgp.com/calendar"
   },
   {
     "d": "07-Sep-26",
@@ -718,6 +742,22 @@
     "link": "https://www.facebook.com/groups/1052463642347360/"
   },
   {
+    "d": "13-Sep-26",
+    "t": "MotoGP — Red Bull Grand Prix of San Marino and the Rimini Riviera",
+    "ty": "Race Meets",
+    "loc": "Misano World Circuit Marco Simoncelli, Misano Adriatico",
+    "ref": "LL-1019",
+    "link": "https://www.motogp.com/en/calendar"
+  },
+  {
+    "d": "13-Sep-26",
+    "t": "MXGP — MXGP of China",
+    "ty": "Race Meets",
+    "loc": "Shanghai",
+    "ref": "LL-1065",
+    "link": "https://www.mxgp.com/calendar"
+  },
+  {
     "d": "14-Sep-26",
     "t": "Bike Night at The Cross Keys - Pizza & Pop",
     "ty": "Bike Meets",
@@ -880,6 +920,14 @@
     "link": "https://london.acecafe.com/"
   },
   {
+    "d": "18-Sep-26",
+    "t": "2026 British Superbike Championship Round 9 - TT Circuit Assen (The Showdown)",
+    "ty": "Race Meets",
+    "loc": "TT Circuit Assen Grand Prix Circuit, Assen, Netherlands",
+    "ref": "LL-1045",
+    "desc": "Ninth round and start of The Showdown in the 2026 British Superbike Championship season."
+  },
+  {
     "d": "19-Sep-26",
     "t": "Bol D'or Classic",
     "ty": "Race Meets",
@@ -1040,6 +1088,22 @@
     "ref": "LL-0760",
     "desc": "The premier championship of motocross racing, plus support events.",
     "link": "https://www.mxgp.com/"
+  },
+  {
+    "d": "20-Sep-26",
+    "t": "MotoGP — Grand Prix of Austria",
+    "ty": "Race Meets",
+    "loc": "Red Bull Ring, Spielberg",
+    "ref": "LL-1020",
+    "link": "https://www.motogp.com/en/calendar"
+  },
+  {
+    "d": "20-Sep-26",
+    "t": "MXGP — MXGP of Australia",
+    "ty": "Race Meets",
+    "loc": "Darwin",
+    "ref": "LL-1066",
+    "link": "https://www.mxgp.com/calendar"
   },
   {
     "d": "21-Sep-26",
@@ -1229,6 +1293,14 @@
     "ref": "LL-0782",
     "desc": "Our annual show weekend. The Auto jumble starts early morning and there will also be a funfair in the grounds. In the afternoon we have a stuntshow doing 3 shows between 12 noon and 5pm, In the evening we have live music inside the cafe. Sunday we have the Ford car meet on site and a classic bike show in the car park in the afternoon. Bikes need to be entered into the show around lunchtime and the trophies will be awarded at 4pm. If you are wanting to stop over on the campsite please make your booking via the camping page on this website.",
     "link": "https://www.squires-cafe.co.uk/"
+  },
+  {
+    "d": "26-Sep-26",
+    "t": "Italian Round",
+    "ty": "Race Meets",
+    "loc": "Cremona Circuit, Cremona, Italy",
+    "ref": "LL-1034",
+    "desc": "WorldSBK Round 10 featuring Race 1, Superpole Race, and Race 2."
   },
   {
     "d": "27-Sep-26",
@@ -1474,6 +1546,14 @@
     "link": "https://london.acecafe.com/"
   },
   {
+    "d": "02-Oct-26",
+    "t": "2026 British Superbike Championship Round 10 - Donington Park (The Showdown)",
+    "ty": "Race Meets",
+    "loc": "Donington Park Grand Prix Circuit, Leicestershire, United Kingdom",
+    "ref": "LL-1046",
+    "desc": "Tenth round and second Showdown round of the 2026 British Superbike Championship season."
+  },
+  {
     "d": "03-Oct-26",
     "t": "FIM World Rally Raid Championship - Rallye du Maroc",
     "ty": "Race Meets",
@@ -1598,6 +1678,14 @@
     "ref": "LL-0820",
     "desc": "The premier championship of motocross racing, plus support events.",
     "link": "https://www.mxgp.com/"
+  },
+  {
+    "d": "04-Oct-26",
+    "t": "MotoGP — Motul Grand Prix of Japan",
+    "ty": "Race Meets",
+    "loc": "Mobility Resort Motegi, Motegi",
+    "ref": "LL-1021",
+    "link": "https://www.motogp.com/en/calendar"
   },
   {
     "d": "05-Oct-26",
@@ -1762,6 +1850,14 @@
     "link": "https://www.darleymoor.co.uk/"
   },
   {
+    "d": "10-Oct-26",
+    "t": "Estoril Round",
+    "ty": "Race Meets",
+    "loc": "Circuito do Estoril, Estoril, Portugal",
+    "ref": "LL-1035",
+    "desc": "WorldSBK Round 11 featuring Race 1, Superpole Race, and Race 2."
+  },
+  {
     "d": "11-Oct-26",
     "t": "MotoGP - Round 17 - Grand Prix of Indonesia",
     "ty": "Race Meets",
@@ -1805,6 +1901,14 @@
     "ref": "LL-0843",
     "desc": "Bike meet at the world famous Ace Café - 09:00 start",
     "link": "https://london.acecafe.com/"
+  },
+  {
+    "d": "11-Oct-26",
+    "t": "MotoGP — Pertamina Grand Prix of Indonesia",
+    "ty": "Race Meets",
+    "loc": "Pertamina Mandalika International Street Circuit, Mandalika",
+    "ref": "LL-1022",
+    "link": "https://www.motogp.com/en/calendar"
   },
   {
     "d": "12-Oct-26",
@@ -1915,6 +2019,14 @@
     "link": "https://london.acecafe.com/"
   },
   {
+    "d": "16-Oct-26",
+    "t": "2026 British Superbike Championship Round 11 - Brands Hatch (The Showdown Finale)",
+    "ty": "Race Meets",
+    "loc": "Brands Hatch Grand Prix Circuit, Kent, United Kingdom",
+    "ref": "LL-1047",
+    "desc": "Eleventh round and finale of The Showdown in the 2026 British Superbike Championship season."
+  },
+  {
     "d": "17-Oct-26",
     "t": "Weston Beach Race",
     "ty": "Race Meets",
@@ -1940,6 +2052,14 @@
     "ref": "LL-0859",
     "desc": "With up to four races per round, the action is spread over two days. WSBK, WSSP, WSSP300 and WCR",
     "link": "https://www.worldsbk.com/"
+  },
+  {
+    "d": "17-Oct-26",
+    "t": "Spanish Round",
+    "ty": "Race Meets",
+    "loc": "Circuito de Jerez, Jerez, Spain",
+    "ref": "LL-1036",
+    "desc": "WorldSBK Round 12 featuring Race 1, Superpole Race, and Race 2."
   },
   {
     "d": "18-Oct-26",
@@ -2131,6 +2251,14 @@
     "link": "https://www.fim-live.com/"
   },
   {
+    "d": "25-Oct-26",
+    "t": "MotoGP — Grand Prix of Australia",
+    "ty": "Race Meets",
+    "loc": "Phillip Island Grand Prix Circuit, Phillip Island",
+    "ref": "LL-1023",
+    "link": "https://www.motogp.com/en/calendar"
+  },
+  {
     "d": "26-Oct-26",
     "t": "Bike Night at The Cross Keys - Pizza & Pop",
     "ty": "Bike Meets",
@@ -2257,6 +2385,22 @@
     "link": "https://london.acecafe.com/"
   },
   {
+    "d": "01-Nov-26",
+    "t": "MotoGP — Petronas Grand Prix of Malaysia",
+    "ty": "Race Meets",
+    "loc": "Petronas Sepang International Circuit, Sepang",
+    "ref": "LL-1024",
+    "link": "https://www.motogp.com/en/calendar"
+  },
+  {
+    "d": "01-Nov-26",
+    "t": "Motorcycle Live",
+    "ty": "Shows & Events",
+    "loc": "NEC Birmingham, Birmingham, UK",
+    "ref": "LL-1088",
+    "desc": "Motorcycle Live show featuring a special curated display of classic motorcycles from the 1980s to 2000s."
+  },
+  {
     "d": "02-Nov-26",
     "t": "German Night & Auto Scoots Monthly Meet",
     "ty": "Bike Meets",
@@ -2300,6 +2444,14 @@
     "ref": "LL-0901",
     "desc": "Bike meet at the world famous Ace Café, North Circular, London - 18:00 start",
     "link": "https://london.acecafe.com/"
+  },
+  {
+    "d": "05-Nov-26",
+    "t": "EICMA",
+    "ty": "Shows & Events",
+    "loc": "EICMA, Milan, Italy",
+    "ref": "LL-1084",
+    "desc": "International motorcycle exhibition."
   },
   {
     "d": "06-Nov-26",
@@ -2779,6 +2931,14 @@
     "link": "https://www.sammymiller.co.uk/"
   },
   {
+    "d": "03-Dec-26",
+    "t": "Intermot",
+    "ty": "Shows & Events",
+    "loc": "Intermot, Cologne, Germany",
+    "ref": "LL-1085",
+    "desc": "International motorcycle and scooter trade show."
+  },
+  {
     "d": "15-Jul-27",
     "t": "Goodwood Festival of Speed",
     "ty": "Shows & Events",
@@ -2786,5 +2946,13 @@
     "ref": "LL-1005",
     "desc": "The largest event of its kind featuring cars, stars and motorsport royalty.",
     "link": "https://www.goodwood.com/motorsport/festival-of-speed/"
+  },
+  {
+    "d": "15-Jul-27",
+    "t": "Festival of Speed",
+    "ty": "Shows & Events",
+    "loc": "Goodwood Motor Circuit, Chichester, United Kingdom",
+    "ref": "LL-1089",
+    "desc": "International motorsport festival featuring hill climbs, supercar demonstrations, and automotive innovation."
   }
 ]
