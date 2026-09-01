@@ -1,23 +1,5 @@
 [
   {
-    "d": "31-Aug-26",
-    "t": "British Superbike Championship - Round 8",
-    "ty": "Race Meets",
-    "loc": "Cadwell Park, Cadwell Park, Lincs, NL11 9SE",
-    "ref": "LL-0639",
-    "desc": "The most biggest and best national Championship in the world. 3 days of racing with Superbikes, Supersports, Sportsbike and many support classes.",
-    "link": "https://www.britishsuperbike.com/"
-  },
-  {
-    "d": "31-Aug-26",
-    "t": "Cheshire Classic Car & Motorcycle Show (inc Jaguar Day and Mercedes-Benz Day)",
-    "ty": "Shows & Events",
-    "loc": "Capesthorne Hall, Capesthorne Hall, Macclesfield, Cheshire, SK11 9JY",
-    "ref": "LL-0650",
-    "desc": "Classic Shows events offer a fantastic day out for all of the family and not just car and bike enthusiasts! The events are held at some of the finest country homes in the UK and provide an impressive backdrop to a display of rare and interesting classic vehicles. Many venues allow tours of the country house, grounds and / or also include children’s play facilities in addition to unique shops, food offerings and the retail of local produce.",
-    "link": "https://www.classicshows.org/"
-  },
-  {
     "d": "01-Sep-26",
     "t": "Poole Quay Bike Night",
     "ty": "Bike Meets",
@@ -250,6 +232,14 @@
     "desc": "Free open day marking Fowlers' 100th anniversary with chance to win a new Suzuki GSX-8S."
   },
   {
+    "d": "05-Sep-26",
+    "t": "French Round - WorldSSP 2026 R1",
+    "ty": "Race Meets",
+    "loc": "Circuit de Nevers Magny-Cours, Magny-Cours, France",
+    "ref": "LL-1106",
+    "desc": "WorldSSP 2026 championship race at Circuit de Nevers Magny-Cours."
+  },
+  {
     "d": "06-Sep-26",
     "t": "World Superbike Championship - Round 9, France",
     "ty": "Race Meets",
@@ -381,6 +371,14 @@
     "loc": "Afyonkarahisar",
     "ref": "LL-1064",
     "link": "https://www.mxgp.com/calendar"
+  },
+  {
+    "d": "06-Sep-26",
+    "t": "French Round - WorldSSP 2026 R2",
+    "ty": "Race Meets",
+    "loc": "Circuit de Nevers Magny-Cours, Magny-Cours, France",
+    "ref": "LL-1107",
+    "desc": "WorldSSP 2026 championship race at Circuit de Nevers Magny-Cours."
   },
   {
     "d": "07-Sep-26",
@@ -928,6 +926,14 @@
     "desc": "Ninth round and start of The Showdown in the 2026 British Superbike Championship season."
   },
   {
+    "d": "18-Sep-26",
+    "t": "2026 British Superbike Championship Round 9 - The Showdown",
+    "ty": "Race Meets",
+    "loc": "TT Circuit Assen Grand Prix Circuit, Assen, Netherlands",
+    "ref": "LL-1122",
+    "desc": "Ninth round of the 2026 British Superbike Championship season at the Showdown."
+  },
+  {
     "d": "19-Sep-26",
     "t": "Bol D'or Classic",
     "ty": "Race Meets",
@@ -1303,6 +1309,14 @@
     "desc": "WorldSBK Round 10 featuring Race 1, Superpole Race, and Race 2."
   },
   {
+    "d": "26-Sep-26",
+    "t": "Italian Round - WorldSSP 2026 R1",
+    "ty": "Race Meets",
+    "loc": "Cremona Circuit, Cremona, Italy",
+    "ref": "LL-1108",
+    "desc": "WorldSSP 2026 championship race at Cremona Circuit."
+  },
+  {
     "d": "27-Sep-26",
     "t": "National Finals",
     "ty": "Race Meets",
@@ -1355,6 +1369,14 @@
     "ref": "LL-0786",
     "desc": "Join the Coleshill Auto Breakfast meet at the Triumph Visitor Experience for their monthly meet. The Club are active fund raisers for the Warks and Solihull Blood Bikers, so call in and enjoy some of the most incredible vehicles on display.",
     "link": "https://www.triumphmotorcycles.co.uk/for-the-ride/experiences/factory-visitor-experience/events"
+  },
+  {
+    "d": "27-Sep-26",
+    "t": "Italian Round - WorldSSP 2026 R2",
+    "ty": "Race Meets",
+    "loc": "Cremona Circuit, Cremona, Italy",
+    "ref": "LL-1109",
+    "desc": "WorldSSP 2026 championship race at Cremona Circuit."
   },
   {
     "d": "28-Sep-26",
@@ -1552,6 +1574,14 @@
     "loc": "Donington Park Grand Prix Circuit, Leicestershire, United Kingdom",
     "ref": "LL-1046",
     "desc": "Tenth round and second Showdown round of the 2026 British Superbike Championship season."
+  },
+  {
+    "d": "02-Oct-26",
+    "t": "2026 British Superbike Championship Round 10 - The Showdown",
+    "ty": "Race Meets",
+    "loc": "Donington Park Grand Prix Circuit, Leicestershire, United Kingdom",
+    "ref": "LL-1123",
+    "desc": "Tenth round of the 2026 British Superbike Championship season at the Showdown."
   },
   {
     "d": "03-Oct-26",
@@ -1858,6 +1888,14 @@
     "desc": "WorldSBK Round 11 featuring Race 1, Superpole Race, and Race 2."
   },
   {
+    "d": "10-Oct-26",
+    "t": "Estoril Round - WorldSSP 2026 R1",
+    "ty": "Race Meets",
+    "loc": "Circuito do Estoril, Estoril, Portugal",
+    "ref": "LL-1110",
+    "desc": "WorldSSP 2026 championship race at Circuito do Estoril."
+  },
+  {
     "d": "11-Oct-26",
     "t": "MotoGP - Round 17 - Grand Prix of Indonesia",
     "ty": "Race Meets",
@@ -1909,6 +1947,14 @@
     "loc": "Pertamina Mandalika International Street Circuit, Mandalika",
     "ref": "LL-1022",
     "link": "https://www.motogp.com/en/calendar"
+  },
+  {
+    "d": "11-Oct-26",
+    "t": "Estoril Round - WorldSSP 2026 R2",
+    "ty": "Race Meets",
+    "loc": "Circuito do Estoril, Estoril, Portugal",
+    "ref": "LL-1111",
+    "desc": "WorldSSP 2026 championship race at Circuito do Estoril."
   },
   {
     "d": "12-Oct-26",
@@ -2027,6 +2073,14 @@
     "desc": "Eleventh round and finale of The Showdown in the 2026 British Superbike Championship season."
   },
   {
+    "d": "16-Oct-26",
+    "t": "2026 British Superbike Championship Round 11 - The Showdown Finale",
+    "ty": "Race Meets",
+    "loc": "Brands Hatch Grand Prix Circuit, Kent, United Kingdom",
+    "ref": "LL-1124",
+    "desc": "Eleventh and final round of the 2026 British Superbike Championship season."
+  },
+  {
     "d": "17-Oct-26",
     "t": "Weston Beach Race",
     "ty": "Race Meets",
@@ -2060,6 +2114,14 @@
     "loc": "Circuito de Jerez, Jerez, Spain",
     "ref": "LL-1036",
     "desc": "WorldSBK Round 12 featuring Race 1, Superpole Race, and Race 2."
+  },
+  {
+    "d": "17-Oct-26",
+    "t": "Spanish Round - WorldSSP 2026 R1",
+    "ty": "Race Meets",
+    "loc": "Circuito de Jerez, Jerez, Spain",
+    "ref": "LL-1112",
+    "desc": "WorldSSP 2026 championship race at Circuito de Jerez."
   },
   {
     "d": "18-Oct-26",
@@ -2105,6 +2167,14 @@
     "ref": "LL-0863",
     "desc": "Bike meet at the world famous Ace Café - 09:00 start",
     "link": "https://london.acecafe.com/"
+  },
+  {
+    "d": "18-Oct-26",
+    "t": "Spanish Round - WorldSSP 2026 R2",
+    "ty": "Race Meets",
+    "loc": "Circuito de Jerez, Jerez, Spain",
+    "ref": "LL-1113",
+    "desc": "WorldSSP 2026 championship race at Circuito de Jerez."
   },
   {
     "d": "19-Oct-26",
